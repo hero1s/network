@@ -8,21 +8,24 @@
 #include <mutex>
 #include <queue>
 #include <list>
+#include "memory_pool.h"
 
 namespace Network
 {
+    MemoryPool* mp = MemoryPool::GetInstance();
+
 class CMessage
 {
 public:
 	CMessage(uint8_t* pMsg, uint16_t wSize)
 	{
-		m_pMsg  = new uint8_t[wSize];
+		m_pMsg  = (uint8_t*)mp->Alloc(wSize);
 		m_wSize = wSize;
 		memcpy(m_pMsg,pMsg,wSize);
 	}
 	~CMessage()
 	{
-		delete[](m_pMsg);
+        mp->FreeAlloc(m_pMsg);
 		m_pMsg  = NULL;
 		m_wSize = 0;
 	}
