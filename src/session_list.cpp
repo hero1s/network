@@ -1,6 +1,6 @@
-#include "Network.h"
-#include "SessionList.h"
-#include "Session.h"
+#include "network.h"
+#include "session_list.h"
+#include "session.h"
 
 namespace Network {
 

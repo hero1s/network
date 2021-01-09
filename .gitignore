@@ -1,2 +1,5 @@
 
 .DS_Store
+cmake-build-debug
+_gsdata_
+libnetwork.a

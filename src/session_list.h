@@ -1,8 +1,8 @@
 #ifndef _SESSIONLIST_H_
 #define _SESSIONLIST_H_
 
-#include "Double_List_T.h"
-#include "TLock.h"
+#include "double_list_t.h"
+#include "tlock.h"
 
 namespace Network {
 

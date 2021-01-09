@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include "TLock.h"
+#include "tlock.h"
 
 namespace Network {
 template<typename T>

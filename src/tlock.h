@@ -1,7 +1,7 @@
 #ifndef _TLOCK_H_
 #define _TLOCK_H_
 
-#include "Network.h"
+#include "network.h"
 
 namespace Network {
 class TLock {

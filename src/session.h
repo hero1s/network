@@ -2,10 +2,10 @@
 #ifndef _SESSION_H_
 #define _SESSION_H_
 
-#include "Double_List_T.h"
-#include "SocketOpt.h"
-#include "TLock.h"
-#include "Message.h"
+#include "double_list_t.h"
+#include "socket_ops.h"
+#include "tlock.h"
+#include "message.h"
 
 namespace Network
 {

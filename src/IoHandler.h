@@ -1,9 +1,9 @@
 #ifndef _IOHANDLER_H_
 #define _IOHANDLER_H_
 
-#include "TLock.h"
-#include "CircuitQueue.h"
-#include "IOCPServer.h"
+#include "tlock.h"
+#include "circuit_queue.h"
+#include "iocp_server.h"
 #include <vector>
 #include <unordered_map>
 

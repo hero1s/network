@@ -1,8 +1,8 @@
-#include "Network.h"
-#include "TLock.h"
-#include "SessionPool.h"
-#include "Session.h"
-#include "SessionList.h"
+#include "network.h"
+#include "tlock.h"
+#include "session_pool.h"
+#include "session.h"
+#include "session_list.h"
 
 #include <algorithm>
 

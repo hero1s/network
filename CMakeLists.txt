@@ -4,29 +4,29 @@ project(network)
 set(CMAKE_CXX_STANDARD 11)
 
 add_executable(network
-        src/Acceptor.cpp
-        src/Acceptor.h
-        src/CircuitQueue.h
-        src/Connector.cpp
-        src/Connector.h
-        src/Double_List_T.h
-        src/IOCPServer.cpp
-        src/IOCPServer.h
+        src/acceptor.cpp
+        src/acceptor.h
+        src/circuit_queue.h
+        src/connector.cpp
+        src/connector.h
+        src/double_list_t.h
+        src/iocp_server.cpp
+        src/iocp_server.h
         src/IoHandler.cpp
         src/IoHandler.h
-        src/Network.h
-        src/NetworkObject.cpp
-        src/NetworkObject.h
-        src/RecvBuffer.h
-        src/SendBuffer.h
-        src/Session.cpp
-        src/Session.h
-        src/SessionList.cpp
-        src/SessionList.h
-        src/SessionPool.cpp
-        src/SessionPool.h
-        src/Single_List_T.h
-        src/SocketOps.cpp
-        src/SocketOpt.h
-        src/TLock.cpp
-        src/TLock.h src/Message.h)
+        src/network.h
+        src/network_object.cpp
+        src/network_object.h
+        src/recv_buffer.h
+        src/send_buffer.h
+        src/session.cpp
+        src/session.h
+        src/session_list.cpp
+        src/session_list.h
+        src/session_pool.cpp
+        src/session_pool.h
+        src/single_list_t.h
+        src/socket_ops.cpp
+        src/socket_ops.h
+        src/tlock.cpp
+        src/tlock.h src/message.h)

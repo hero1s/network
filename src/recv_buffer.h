@@ -2,7 +2,7 @@
 #ifndef _RECVBUFFER_H_
 #define _RECVBUFFER_H_
 
-#include "CircuitQueue.h"
+#include "circuit_queue.h"
 
 namespace Network {
 

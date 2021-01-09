@@ -1,6 +1,6 @@
 
-#include "Network.h"
-#include "SocketOpt.h"
+#include "network.h"
+#include "socket_ops.h"
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <unistd.h>

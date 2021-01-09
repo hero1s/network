@@ -1,10 +1,10 @@
 
-#include "Network.h"
-#include "Session.h"
-#include "SessionPool.h"
-#include "SendBuffer.h"
-#include "RecvBuffer.h"
-#include "NetworkObject.h"
+#include "network.h"
+#include "session.h"
+#include "session_pool.h"
+#include "send_buffer.h"
+#include "recv_buffer.h"
+#include "network_object.h"
 #include "IoHandler.h"
 
 using namespace std;

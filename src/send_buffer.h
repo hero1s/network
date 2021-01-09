@@ -1,7 +1,7 @@
 #ifndef _SENDBUFFER_H_
 #define _SENDBUFFER_H_
 
-#include "CircuitQueue.h"
+#include "circuit_queue.h"
 
 namespace Network {
 //=============================================================================================================================

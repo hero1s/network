@@ -1,8 +1,8 @@
-#include "Network.h"
-#include "TLock.h"
-#include "Connector.h"
-#include "Session.h"
-#include "SessionList.h"
+#include "network.h"
+#include "tlock.h"
+#include "connector.h"
+#include "session.h"
+#include "session_list.h"
 #include "IoHandler.h"
 
 namespace Network {
