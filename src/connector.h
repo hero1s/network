@@ -1,5 +1,4 @@
-#ifndef __CONNECTOR_H__
-#define __CONNECTOR_H__
+#pragma once
 
 #define MAX_CONNECT_THREAD    16
 
@@ -44,5 +43,3 @@ private:
 };
 
 }
-
-#endif

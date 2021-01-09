@@ -1,6 +1,5 @@
 
-#ifndef TERABIT_SINGLE_LIST_T_H
-#define TERABIT_SINGLE_LIST_T_H
+#pragma once
 
 #include <functional>
 #include <algorithm>
@@ -793,6 +792,6 @@ Single_Queue_T<X, F>::splice(Other_List_T& other)
 //    other.size_ = 0;
 }
 
-#endif /* TERABIT_SINGLE_LIST_T_H */
+
 
 

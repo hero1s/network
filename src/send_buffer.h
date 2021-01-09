@@ -1,5 +1,4 @@
-#ifndef _SENDBUFFER_H_
-#define _SENDBUFFER_H_
+#pragma once
 
 #include "circuit_queue.h"
 
@@ -64,6 +63,5 @@ private:
 
 }
 
-#endif
 
 

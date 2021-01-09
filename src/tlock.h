@@ -1,5 +1,4 @@
-#ifndef _TLOCK_H_
-#define _TLOCK_H_
+#pragma once
 
 #include "network.h"
 
@@ -91,4 +90,4 @@ private:
 
 }
 
-#endif
+

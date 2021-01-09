@@ -1,6 +1,5 @@
 
-#ifndef _SESSION_H_
-#define _SESSION_H_
+#pragma once
 
 #include "double_list_t.h"
 #include "socket_ops.h"
@@ -182,6 +181,6 @@ private:
 };
 
 }
-#endif
+
 	
  

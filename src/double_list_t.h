@@ -1,6 +1,5 @@
 
-#ifndef TERABIT_DOUBLE_LIST_T_H
-#define TERABIT_DOUBLE_LIST_T_H
+#pragma once
 
 #include "single_list_t.h"
 
@@ -456,7 +455,7 @@ Double_List_T<X, F>::clear()
     size_ = 0;
 }
 
-#endif /* TERABIT_DOUBLE_LIST_T_H */
+
 	
 
 

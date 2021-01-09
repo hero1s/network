@@ -1,9 +1,7 @@
 //
 // Created by Administrator on 2018/8/14.
 //
-
-#ifndef NETWORK_MESSAGE_H
-#define NETWORK_MESSAGE_H
+#pragma once
 
 #include <stdlib.h>
 #include <memory>
@@ -84,4 +82,3 @@ public:
 
 };
 
-#endif //NETWORK_MESSAGE_H

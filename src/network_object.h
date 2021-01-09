@@ -1,5 +1,5 @@
-#ifndef _NETWORKOBJECT_H_
-#define _NETWORKOBJECT_H_
+
+#pragma once
 
 #include<string>
 
@@ -46,6 +46,5 @@ protected:
 };
 }
 
-#endif
 	
 	

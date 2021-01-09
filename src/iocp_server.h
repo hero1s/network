@@ -1,5 +1,4 @@
-#ifndef _IOCPSERVER_H_
-#define _IOCPSERVER_H_
+#pragma once
 
 #include <unordered_map>
 #include <pthread.h>
@@ -102,5 +101,4 @@ private:
 
 }
 
-#endif // _IOCPSERVER_H_
 

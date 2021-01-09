@@ -1,6 +1,5 @@
 
-#ifndef SOCKET_OPS_H
-#define SOCKET_OPS_H
+#pragma once
 
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -46,6 +45,6 @@ void InitSocketOpt(SOCKET fd);
 
 };
 
-#endif
+
 
 

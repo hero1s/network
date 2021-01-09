@@ -1,6 +1,5 @@
 
-#ifndef _SESSIONPOOL_H_
-#define _SESSIONPOOL_H_
+#pragma once
 
 namespace Network
 {
@@ -37,5 +36,5 @@ private:
 
 }
 
-#endif
+
 	

@@ -1,6 +1,5 @@
 
-#ifndef _ACCEPTOR_H_
-#define _ACCEPTOR_H_
+#pragma once
 
 namespace Network {
 
@@ -35,7 +34,7 @@ private:
 
 }
 
-#endif // _ACCEPTOR_H_
+
 	
 	 
 

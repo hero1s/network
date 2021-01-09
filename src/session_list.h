@@ -1,5 +1,5 @@
-#ifndef _SESSIONLIST_H_
-#define _SESSIONLIST_H_
+
+#pragma once
 
 #include "double_list_t.h"
 #include "tlock.h"
@@ -26,7 +26,6 @@ typedef SessionList::iterator SESSION_LIST_ITER;
 
 }
 
-#endif
 	
 
 

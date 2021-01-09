@@ -1,6 +1,5 @@
 
-#ifndef _RECVBUFFER_H_
-#define _RECVBUFFER_H_
+#pragma once
 
 #include "circuit_queue.h"
 
@@ -54,7 +53,6 @@ private:
 
 }
 
-#endif
 
 
 

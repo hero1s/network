@@ -1,5 +1,4 @@
-#ifndef _CIRCUITQUEUE_H_
-#define _CIRCUITQUEUE_H_
+#pragma once
 
 #include <stdio.h>
 #include <assert.h>
@@ -257,7 +256,6 @@ protected:
 
 }
 
-#endif
 
 
 

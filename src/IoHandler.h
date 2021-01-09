@@ -1,5 +1,4 @@
-#ifndef _IOHANDLER_H_
-#define _IOHANDLER_H_
+#pragma once
 
 #include "tlock.h"
 #include "circuit_queue.h"
@@ -114,7 +113,6 @@ private:
 
 }
 
-#endif
 	
 	 
 	  

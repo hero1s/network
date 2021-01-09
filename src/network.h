@@ -1,6 +1,5 @@
 
-#ifndef _NETWORK_H_
-#define _NETWORK_H_
+#pragma once
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -38,5 +37,5 @@ typedef struct sockaddr    SOCKADDR;
 
 }
 
-#endif
+
 
