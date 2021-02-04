@@ -123,87 +123,6 @@ network/fast:
 	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/build
 .PHONY : network/fast
 
-home/toney/data/network/src/Acceptor.o: home/toney/data/network/src/Acceptor.cpp.o
-
-.PHONY : home/toney/data/network/src/Acceptor.o
-
-# target to build an object file
-home/toney/data/network/src/Acceptor.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Acceptor.cpp.o
-.PHONY : home/toney/data/network/src/Acceptor.cpp.o
-
-home/toney/data/network/src/Acceptor.i: home/toney/data/network/src/Acceptor.cpp.i
-
-.PHONY : home/toney/data/network/src/Acceptor.i
-
-# target to preprocess a source file
-home/toney/data/network/src/Acceptor.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Acceptor.cpp.i
-.PHONY : home/toney/data/network/src/Acceptor.cpp.i
-
-home/toney/data/network/src/Acceptor.s: home/toney/data/network/src/Acceptor.cpp.s
-
-.PHONY : home/toney/data/network/src/Acceptor.s
-
-# target to generate assembly for a file
-home/toney/data/network/src/Acceptor.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Acceptor.cpp.s
-.PHONY : home/toney/data/network/src/Acceptor.cpp.s
-
-home/toney/data/network/src/Connector.o: home/toney/data/network/src/Connector.cpp.o
-
-.PHONY : home/toney/data/network/src/Connector.o
-
-# target to build an object file
-home/toney/data/network/src/Connector.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Connector.cpp.o
-.PHONY : home/toney/data/network/src/Connector.cpp.o
-
-home/toney/data/network/src/Connector.i: home/toney/data/network/src/Connector.cpp.i
-
-.PHONY : home/toney/data/network/src/Connector.i
-
-# target to preprocess a source file
-home/toney/data/network/src/Connector.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Connector.cpp.i
-.PHONY : home/toney/data/network/src/Connector.cpp.i
-
-home/toney/data/network/src/Connector.s: home/toney/data/network/src/Connector.cpp.s
-
-.PHONY : home/toney/data/network/src/Connector.s
-
-# target to generate assembly for a file
-home/toney/data/network/src/Connector.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Connector.cpp.s
-.PHONY : home/toney/data/network/src/Connector.cpp.s
-
-home/toney/data/network/src/IOCPServer.o: home/toney/data/network/src/IOCPServer.cpp.o
-
-.PHONY : home/toney/data/network/src/IOCPServer.o
-
-# target to build an object file
-home/toney/data/network/src/IOCPServer.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/IOCPServer.cpp.o
-.PHONY : home/toney/data/network/src/IOCPServer.cpp.o
-
-home/toney/data/network/src/IOCPServer.i: home/toney/data/network/src/IOCPServer.cpp.i
-
-.PHONY : home/toney/data/network/src/IOCPServer.i
-
-# target to preprocess a source file
-home/toney/data/network/src/IOCPServer.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/IOCPServer.cpp.i
-.PHONY : home/toney/data/network/src/IOCPServer.cpp.i
-
-home/toney/data/network/src/IOCPServer.s: home/toney/data/network/src/IOCPServer.cpp.s
-
-.PHONY : home/toney/data/network/src/IOCPServer.s
-
-# target to generate assembly for a file
-home/toney/data/network/src/IOCPServer.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/IOCPServer.cpp.s
-.PHONY : home/toney/data/network/src/IOCPServer.cpp.s
-
 home/toney/data/network/src/IoHandler.o: home/toney/data/network/src/IoHandler.cpp.o
 
 .PHONY : home/toney/data/network/src/IoHandler.o
@@ -231,167 +150,248 @@ home/toney/data/network/src/IoHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/IoHandler.cpp.s
 .PHONY : home/toney/data/network/src/IoHandler.cpp.s
 
-home/toney/data/network/src/NetworkObject.o: home/toney/data/network/src/NetworkObject.cpp.o
+home/toney/data/network/src/acceptor.o: home/toney/data/network/src/acceptor.cpp.o
 
-.PHONY : home/toney/data/network/src/NetworkObject.o
-
-# target to build an object file
-home/toney/data/network/src/NetworkObject.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/NetworkObject.cpp.o
-.PHONY : home/toney/data/network/src/NetworkObject.cpp.o
-
-home/toney/data/network/src/NetworkObject.i: home/toney/data/network/src/NetworkObject.cpp.i
-
-.PHONY : home/toney/data/network/src/NetworkObject.i
-
-# target to preprocess a source file
-home/toney/data/network/src/NetworkObject.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/NetworkObject.cpp.i
-.PHONY : home/toney/data/network/src/NetworkObject.cpp.i
-
-home/toney/data/network/src/NetworkObject.s: home/toney/data/network/src/NetworkObject.cpp.s
-
-.PHONY : home/toney/data/network/src/NetworkObject.s
-
-# target to generate assembly for a file
-home/toney/data/network/src/NetworkObject.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/NetworkObject.cpp.s
-.PHONY : home/toney/data/network/src/NetworkObject.cpp.s
-
-home/toney/data/network/src/Session.o: home/toney/data/network/src/Session.cpp.o
-
-.PHONY : home/toney/data/network/src/Session.o
+.PHONY : home/toney/data/network/src/acceptor.o
 
 # target to build an object file
-home/toney/data/network/src/Session.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Session.cpp.o
-.PHONY : home/toney/data/network/src/Session.cpp.o
+home/toney/data/network/src/acceptor.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/acceptor.cpp.o
+.PHONY : home/toney/data/network/src/acceptor.cpp.o
 
-home/toney/data/network/src/Session.i: home/toney/data/network/src/Session.cpp.i
+home/toney/data/network/src/acceptor.i: home/toney/data/network/src/acceptor.cpp.i
 
-.PHONY : home/toney/data/network/src/Session.i
+.PHONY : home/toney/data/network/src/acceptor.i
 
 # target to preprocess a source file
-home/toney/data/network/src/Session.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Session.cpp.i
-.PHONY : home/toney/data/network/src/Session.cpp.i
+home/toney/data/network/src/acceptor.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/acceptor.cpp.i
+.PHONY : home/toney/data/network/src/acceptor.cpp.i
 
-home/toney/data/network/src/Session.s: home/toney/data/network/src/Session.cpp.s
+home/toney/data/network/src/acceptor.s: home/toney/data/network/src/acceptor.cpp.s
 
-.PHONY : home/toney/data/network/src/Session.s
+.PHONY : home/toney/data/network/src/acceptor.s
 
 # target to generate assembly for a file
-home/toney/data/network/src/Session.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/Session.cpp.s
-.PHONY : home/toney/data/network/src/Session.cpp.s
+home/toney/data/network/src/acceptor.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/acceptor.cpp.s
+.PHONY : home/toney/data/network/src/acceptor.cpp.s
 
-home/toney/data/network/src/SessionList.o: home/toney/data/network/src/SessionList.cpp.o
+home/toney/data/network/src/connector.o: home/toney/data/network/src/connector.cpp.o
 
-.PHONY : home/toney/data/network/src/SessionList.o
+.PHONY : home/toney/data/network/src/connector.o
 
 # target to build an object file
-home/toney/data/network/src/SessionList.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SessionList.cpp.o
-.PHONY : home/toney/data/network/src/SessionList.cpp.o
+home/toney/data/network/src/connector.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/connector.cpp.o
+.PHONY : home/toney/data/network/src/connector.cpp.o
 
-home/toney/data/network/src/SessionList.i: home/toney/data/network/src/SessionList.cpp.i
+home/toney/data/network/src/connector.i: home/toney/data/network/src/connector.cpp.i
 
-.PHONY : home/toney/data/network/src/SessionList.i
+.PHONY : home/toney/data/network/src/connector.i
 
 # target to preprocess a source file
-home/toney/data/network/src/SessionList.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SessionList.cpp.i
-.PHONY : home/toney/data/network/src/SessionList.cpp.i
+home/toney/data/network/src/connector.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/connector.cpp.i
+.PHONY : home/toney/data/network/src/connector.cpp.i
 
-home/toney/data/network/src/SessionList.s: home/toney/data/network/src/SessionList.cpp.s
+home/toney/data/network/src/connector.s: home/toney/data/network/src/connector.cpp.s
 
-.PHONY : home/toney/data/network/src/SessionList.s
+.PHONY : home/toney/data/network/src/connector.s
 
 # target to generate assembly for a file
-home/toney/data/network/src/SessionList.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SessionList.cpp.s
-.PHONY : home/toney/data/network/src/SessionList.cpp.s
+home/toney/data/network/src/connector.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/connector.cpp.s
+.PHONY : home/toney/data/network/src/connector.cpp.s
 
-home/toney/data/network/src/SessionPool.o: home/toney/data/network/src/SessionPool.cpp.o
+home/toney/data/network/src/iocp_server.o: home/toney/data/network/src/iocp_server.cpp.o
 
-.PHONY : home/toney/data/network/src/SessionPool.o
+.PHONY : home/toney/data/network/src/iocp_server.o
 
 # target to build an object file
-home/toney/data/network/src/SessionPool.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SessionPool.cpp.o
-.PHONY : home/toney/data/network/src/SessionPool.cpp.o
+home/toney/data/network/src/iocp_server.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/iocp_server.cpp.o
+.PHONY : home/toney/data/network/src/iocp_server.cpp.o
 
-home/toney/data/network/src/SessionPool.i: home/toney/data/network/src/SessionPool.cpp.i
+home/toney/data/network/src/iocp_server.i: home/toney/data/network/src/iocp_server.cpp.i
 
-.PHONY : home/toney/data/network/src/SessionPool.i
+.PHONY : home/toney/data/network/src/iocp_server.i
 
 # target to preprocess a source file
-home/toney/data/network/src/SessionPool.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SessionPool.cpp.i
-.PHONY : home/toney/data/network/src/SessionPool.cpp.i
+home/toney/data/network/src/iocp_server.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/iocp_server.cpp.i
+.PHONY : home/toney/data/network/src/iocp_server.cpp.i
 
-home/toney/data/network/src/SessionPool.s: home/toney/data/network/src/SessionPool.cpp.s
+home/toney/data/network/src/iocp_server.s: home/toney/data/network/src/iocp_server.cpp.s
 
-.PHONY : home/toney/data/network/src/SessionPool.s
+.PHONY : home/toney/data/network/src/iocp_server.s
 
 # target to generate assembly for a file
-home/toney/data/network/src/SessionPool.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SessionPool.cpp.s
-.PHONY : home/toney/data/network/src/SessionPool.cpp.s
+home/toney/data/network/src/iocp_server.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/iocp_server.cpp.s
+.PHONY : home/toney/data/network/src/iocp_server.cpp.s
 
-home/toney/data/network/src/SocketOps.o: home/toney/data/network/src/SocketOps.cpp.o
+home/toney/data/network/src/network_object.o: home/toney/data/network/src/network_object.cpp.o
 
-.PHONY : home/toney/data/network/src/SocketOps.o
+.PHONY : home/toney/data/network/src/network_object.o
 
 # target to build an object file
-home/toney/data/network/src/SocketOps.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SocketOps.cpp.o
-.PHONY : home/toney/data/network/src/SocketOps.cpp.o
+home/toney/data/network/src/network_object.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/network_object.cpp.o
+.PHONY : home/toney/data/network/src/network_object.cpp.o
 
-home/toney/data/network/src/SocketOps.i: home/toney/data/network/src/SocketOps.cpp.i
+home/toney/data/network/src/network_object.i: home/toney/data/network/src/network_object.cpp.i
 
-.PHONY : home/toney/data/network/src/SocketOps.i
+.PHONY : home/toney/data/network/src/network_object.i
 
 # target to preprocess a source file
-home/toney/data/network/src/SocketOps.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SocketOps.cpp.i
-.PHONY : home/toney/data/network/src/SocketOps.cpp.i
+home/toney/data/network/src/network_object.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/network_object.cpp.i
+.PHONY : home/toney/data/network/src/network_object.cpp.i
 
-home/toney/data/network/src/SocketOps.s: home/toney/data/network/src/SocketOps.cpp.s
+home/toney/data/network/src/network_object.s: home/toney/data/network/src/network_object.cpp.s
 
-.PHONY : home/toney/data/network/src/SocketOps.s
+.PHONY : home/toney/data/network/src/network_object.s
 
 # target to generate assembly for a file
-home/toney/data/network/src/SocketOps.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/SocketOps.cpp.s
-.PHONY : home/toney/data/network/src/SocketOps.cpp.s
+home/toney/data/network/src/network_object.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/network_object.cpp.s
+.PHONY : home/toney/data/network/src/network_object.cpp.s
 
-home/toney/data/network/src/TLock.o: home/toney/data/network/src/TLock.cpp.o
+home/toney/data/network/src/session.o: home/toney/data/network/src/session.cpp.o
 
-.PHONY : home/toney/data/network/src/TLock.o
+.PHONY : home/toney/data/network/src/session.o
 
 # target to build an object file
-home/toney/data/network/src/TLock.cpp.o:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/TLock.cpp.o
-.PHONY : home/toney/data/network/src/TLock.cpp.o
+home/toney/data/network/src/session.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session.cpp.o
+.PHONY : home/toney/data/network/src/session.cpp.o
 
-home/toney/data/network/src/TLock.i: home/toney/data/network/src/TLock.cpp.i
+home/toney/data/network/src/session.i: home/toney/data/network/src/session.cpp.i
 
-.PHONY : home/toney/data/network/src/TLock.i
+.PHONY : home/toney/data/network/src/session.i
 
 # target to preprocess a source file
-home/toney/data/network/src/TLock.cpp.i:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/TLock.cpp.i
-.PHONY : home/toney/data/network/src/TLock.cpp.i
+home/toney/data/network/src/session.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session.cpp.i
+.PHONY : home/toney/data/network/src/session.cpp.i
 
-home/toney/data/network/src/TLock.s: home/toney/data/network/src/TLock.cpp.s
+home/toney/data/network/src/session.s: home/toney/data/network/src/session.cpp.s
 
-.PHONY : home/toney/data/network/src/TLock.s
+.PHONY : home/toney/data/network/src/session.s
 
 # target to generate assembly for a file
-home/toney/data/network/src/TLock.cpp.s:
-	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/TLock.cpp.s
-.PHONY : home/toney/data/network/src/TLock.cpp.s
+home/toney/data/network/src/session.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session.cpp.s
+.PHONY : home/toney/data/network/src/session.cpp.s
+
+home/toney/data/network/src/session_list.o: home/toney/data/network/src/session_list.cpp.o
+
+.PHONY : home/toney/data/network/src/session_list.o
+
+# target to build an object file
+home/toney/data/network/src/session_list.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session_list.cpp.o
+.PHONY : home/toney/data/network/src/session_list.cpp.o
+
+home/toney/data/network/src/session_list.i: home/toney/data/network/src/session_list.cpp.i
+
+.PHONY : home/toney/data/network/src/session_list.i
+
+# target to preprocess a source file
+home/toney/data/network/src/session_list.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session_list.cpp.i
+.PHONY : home/toney/data/network/src/session_list.cpp.i
+
+home/toney/data/network/src/session_list.s: home/toney/data/network/src/session_list.cpp.s
+
+.PHONY : home/toney/data/network/src/session_list.s
+
+# target to generate assembly for a file
+home/toney/data/network/src/session_list.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session_list.cpp.s
+.PHONY : home/toney/data/network/src/session_list.cpp.s
+
+home/toney/data/network/src/session_pool.o: home/toney/data/network/src/session_pool.cpp.o
+
+.PHONY : home/toney/data/network/src/session_pool.o
+
+# target to build an object file
+home/toney/data/network/src/session_pool.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session_pool.cpp.o
+.PHONY : home/toney/data/network/src/session_pool.cpp.o
+
+home/toney/data/network/src/session_pool.i: home/toney/data/network/src/session_pool.cpp.i
+
+.PHONY : home/toney/data/network/src/session_pool.i
+
+# target to preprocess a source file
+home/toney/data/network/src/session_pool.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session_pool.cpp.i
+.PHONY : home/toney/data/network/src/session_pool.cpp.i
+
+home/toney/data/network/src/session_pool.s: home/toney/data/network/src/session_pool.cpp.s
+
+.PHONY : home/toney/data/network/src/session_pool.s
+
+# target to generate assembly for a file
+home/toney/data/network/src/session_pool.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/session_pool.cpp.s
+.PHONY : home/toney/data/network/src/session_pool.cpp.s
+
+home/toney/data/network/src/socket_ops.o: home/toney/data/network/src/socket_ops.cpp.o
+
+.PHONY : home/toney/data/network/src/socket_ops.o
+
+# target to build an object file
+home/toney/data/network/src/socket_ops.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/socket_ops.cpp.o
+.PHONY : home/toney/data/network/src/socket_ops.cpp.o
+
+home/toney/data/network/src/socket_ops.i: home/toney/data/network/src/socket_ops.cpp.i
+
+.PHONY : home/toney/data/network/src/socket_ops.i
+
+# target to preprocess a source file
+home/toney/data/network/src/socket_ops.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/socket_ops.cpp.i
+.PHONY : home/toney/data/network/src/socket_ops.cpp.i
+
+home/toney/data/network/src/socket_ops.s: home/toney/data/network/src/socket_ops.cpp.s
+
+.PHONY : home/toney/data/network/src/socket_ops.s
+
+# target to generate assembly for a file
+home/toney/data/network/src/socket_ops.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/socket_ops.cpp.s
+.PHONY : home/toney/data/network/src/socket_ops.cpp.s
+
+home/toney/data/network/src/tlock.o: home/toney/data/network/src/tlock.cpp.o
+
+.PHONY : home/toney/data/network/src/tlock.o
+
+# target to build an object file
+home/toney/data/network/src/tlock.cpp.o:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/tlock.cpp.o
+.PHONY : home/toney/data/network/src/tlock.cpp.o
+
+home/toney/data/network/src/tlock.i: home/toney/data/network/src/tlock.cpp.i
+
+.PHONY : home/toney/data/network/src/tlock.i
+
+# target to preprocess a source file
+home/toney/data/network/src/tlock.cpp.i:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/tlock.cpp.i
+.PHONY : home/toney/data/network/src/tlock.cpp.i
+
+home/toney/data/network/src/tlock.s: home/toney/data/network/src/tlock.cpp.s
+
+.PHONY : home/toney/data/network/src/tlock.s
+
+# target to generate assembly for a file
+home/toney/data/network/src/tlock.cpp.s:
+	$(MAKE) -f CMakeFiles/network.dir/build.make CMakeFiles/network.dir/home/toney/data/network/src/tlock.cpp.s
+.PHONY : home/toney/data/network/src/tlock.cpp.s
 
 # Help Target
 help:
@@ -402,36 +402,36 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... network"
-	@echo "... home/toney/data/network/src/Acceptor.o"
-	@echo "... home/toney/data/network/src/Acceptor.i"
-	@echo "... home/toney/data/network/src/Acceptor.s"
-	@echo "... home/toney/data/network/src/Connector.o"
-	@echo "... home/toney/data/network/src/Connector.i"
-	@echo "... home/toney/data/network/src/Connector.s"
-	@echo "... home/toney/data/network/src/IOCPServer.o"
-	@echo "... home/toney/data/network/src/IOCPServer.i"
-	@echo "... home/toney/data/network/src/IOCPServer.s"
 	@echo "... home/toney/data/network/src/IoHandler.o"
 	@echo "... home/toney/data/network/src/IoHandler.i"
 	@echo "... home/toney/data/network/src/IoHandler.s"
-	@echo "... home/toney/data/network/src/NetworkObject.o"
-	@echo "... home/toney/data/network/src/NetworkObject.i"
-	@echo "... home/toney/data/network/src/NetworkObject.s"
-	@echo "... home/toney/data/network/src/Session.o"
-	@echo "... home/toney/data/network/src/Session.i"
-	@echo "... home/toney/data/network/src/Session.s"
-	@echo "... home/toney/data/network/src/SessionList.o"
-	@echo "... home/toney/data/network/src/SessionList.i"
-	@echo "... home/toney/data/network/src/SessionList.s"
-	@echo "... home/toney/data/network/src/SessionPool.o"
-	@echo "... home/toney/data/network/src/SessionPool.i"
-	@echo "... home/toney/data/network/src/SessionPool.s"
-	@echo "... home/toney/data/network/src/SocketOps.o"
-	@echo "... home/toney/data/network/src/SocketOps.i"
-	@echo "... home/toney/data/network/src/SocketOps.s"
-	@echo "... home/toney/data/network/src/TLock.o"
-	@echo "... home/toney/data/network/src/TLock.i"
-	@echo "... home/toney/data/network/src/TLock.s"
+	@echo "... home/toney/data/network/src/acceptor.o"
+	@echo "... home/toney/data/network/src/acceptor.i"
+	@echo "... home/toney/data/network/src/acceptor.s"
+	@echo "... home/toney/data/network/src/connector.o"
+	@echo "... home/toney/data/network/src/connector.i"
+	@echo "... home/toney/data/network/src/connector.s"
+	@echo "... home/toney/data/network/src/iocp_server.o"
+	@echo "... home/toney/data/network/src/iocp_server.i"
+	@echo "... home/toney/data/network/src/iocp_server.s"
+	@echo "... home/toney/data/network/src/network_object.o"
+	@echo "... home/toney/data/network/src/network_object.i"
+	@echo "... home/toney/data/network/src/network_object.s"
+	@echo "... home/toney/data/network/src/session.o"
+	@echo "... home/toney/data/network/src/session.i"
+	@echo "... home/toney/data/network/src/session.s"
+	@echo "... home/toney/data/network/src/session_list.o"
+	@echo "... home/toney/data/network/src/session_list.i"
+	@echo "... home/toney/data/network/src/session_list.s"
+	@echo "... home/toney/data/network/src/session_pool.o"
+	@echo "... home/toney/data/network/src/session_pool.i"
+	@echo "... home/toney/data/network/src/session_pool.s"
+	@echo "... home/toney/data/network/src/socket_ops.o"
+	@echo "... home/toney/data/network/src/socket_ops.i"
+	@echo "... home/toney/data/network/src/socket_ops.s"
+	@echo "... home/toney/data/network/src/tlock.o"
+	@echo "... home/toney/data/network/src/tlock.i"
+	@echo "... home/toney/data/network/src/tlock.s"
 .PHONY : help
 
 
