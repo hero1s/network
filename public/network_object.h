@@ -7,6 +7,7 @@ namespace Network
 {
 
 class Session;
+
 //-------------------------------------------------------------------------------------------------
 /// NetworkObject
 //	- fnCreateAcceptedObject 
@@ -17,6 +18,11 @@ class NetworkObject
 	friend class Session;
 	friend class IoHandler;
 
+//解包打包
+public:
+    virtual uint32_t GetHeadLen() = 0;
+    virtual uint32_t GetPacketLen(const uint8_t* pData, uint16_t wLen) = 0;
+    virtual uint32_t MaxTickPacket(){return 10000;};
 public:
 	NetworkObject();
 	virtual ~NetworkObject();
@@ -33,7 +39,7 @@ public:
 protected:
 	virtual void OnAccept(uint32_t dwNetworkIndex);
 	virtual void OnDisconnect();
-	virtual int OnRecv(uint8_t* pMsg, uint16_t wSize);
+	virtual int  OnRecv(uint8_t* pMsg, uint16_t wSize);
 	virtual void OnConnect(bool bSuccess, uint32_t dwNetworkIndex);
 	virtual void OnLogString(const char* pszLog);
 

@@ -15,7 +15,6 @@ class SessionPool;
 class NetworkObject;
 class Session;
 class IoHandler;
-class CMessageDecode;
 
 //=============================================================================================================================
 /**
@@ -39,8 +38,6 @@ public:
 	/// dwTimeOut .
 	Session(uint32_t dwSendBufferSize, uint32_t dwRecvBufferSize, uint32_t dwMaxPacketSize, uint32_t dwTimeOut);
 	virtual ~Session();
-
-	void SetMsgDecode(CMessageDecode* pDecode);
 
 	void Init();
 	bool Send(uint8_t* pMsg, uint16_t wSize);
@@ -170,7 +167,6 @@ private:
 	TLock m_lockRecv;
 	TLock m_lockSend;
 	int   m_bCanSend;
-	CMessageDecode* m_pMsgDecode;
 	LockedQueue<std::shared_ptr<CMessage> > m_QueueMessage;//消息队列
 	uint16_t                                m_wMaxPacketSize;
 

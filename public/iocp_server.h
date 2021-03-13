@@ -3,6 +3,7 @@
 #include <unordered_map>
 #include <pthread.h>
 #include <string.h>
+#include <vector>
 
 namespace Network
 {
@@ -14,18 +15,20 @@ class IoHandler;
 class CNetworkObjPool
 {
 public:
+    //对象管理
 	virtual NetworkObject* CreateAcceptedObject() = 0;
 	virtual void DestroyAcceptedObject(NetworkObject* pNetworkObject) = 0;
 	virtual void DestroyConnectedObject(NetworkObject* pNetworkObject) = 0;
 };
+
 //对象池接口模板
-template<typename TYPE>
+template<typename TObject>
 class CNetworkObjPoolTemplete : public CNetworkObjPool
 {
 public:
 	virtual NetworkObject* CreateAcceptedObject()
 	{
-		return new TYPE();
+		return new TObject();
 	}
 	virtual void DestroyAcceptedObject(NetworkObject* pNetworkObject)
 	{
@@ -36,23 +39,32 @@ public:
 
 	};
 };
-//消息解码
-class CMessageDecode
-{
-public:
-	virtual uint32_t GetHeadLen() = 0;
-	virtual uint32_t GetPacketLen(const uint8_t* pData, uint16_t wLen) = 0;
-	virtual uint32_t MaxTickPacket()
-	{
-		return 100;
-	};
-};
+
 
 //-------------------------------------------------------------------------------------------------
 /// I/O 
 //-------------------------------------------------------------------------------------------------
-typedef struct tagIOHANDLER_DESC
+class IOHANDLER_DESC
 {
+public:
+    IOHANDLER_DESC()
+    {
+        memset(this, 0, sizeof(IOHANDLER_DESC));
+    }
+    template<typename TObj>
+    void Init(uint32_t key)
+    {
+        dwIoHandlerKey          = key;
+        dwMaxAcceptSession      = 10000;                                                // 最大接受连接数
+        dwMaxConnectSession     = 100;                                                  // 最大主动连接数
+        dwMaxConnectBuffSize    = 1024*1024;                                            // 主动连接BuffSize
+        dwSendBufferSize        = 1024*1024;                                            // 发送缓存
+        dwRecvBufferSize        = 1024*1024;                                            // 接受缓存
+        dwTimeOut               = 40;                                                   // 超时断开(秒)
+        dwMaxPacketSize         = 32*1024;                                              // 最大包长
+        pool                    = new CNetworkObjPoolTemplete<TObj>;                    // 对象池
+    }
+
   uint32_t dwIoHandlerKey;
   uint32_t dwMaxAcceptSession;      // 最大接受连接数
   uint32_t dwMaxConnectSession;     // 最大主动连接数
@@ -62,13 +74,7 @@ typedef struct tagIOHANDLER_DESC
   uint32_t dwTimeOut;               // 超时断开(秒)
   uint32_t dwMaxPacketSize;         // 最大包长
   CNetworkObjPool* pool;            // 对象池
-  CMessageDecode * decode;          // 消息解码器
-
-  tagIOHANDLER_DESC()
-  {
-	  memset(this, 0, sizeof(tagIOHANDLER_DESC));
-  }
-} IOHANDLER_DESC, * LPIOHANDLER_DESC;
+};
 
 class IOCPServer
 {
@@ -78,7 +84,7 @@ public:
 	IOCPServer();
 	virtual ~IOCPServer();
 
-	bool Init(LPIOHANDLER_DESC lpDesc, uint32_t dwNumberofIoHandlers);
+	bool Init(std::vector<IOHANDLER_DESC>& lpDesc);
 	bool StartListen(uint32_t dwIoHandlerKey, const char* pIP, uint16_t wPort);
 	void Update();
 	void Shutdown();
@@ -91,7 +97,7 @@ public:
 	void ClearWhiteListIP(uint32_t dwIoHandlerKey);
 	bool IsWhiteIP(uint32_t dwIoHandlerKey, uint32_t ip);
 private:
-	void CreateIoHandler(LPIOHANDLER_DESC lpDesc);
+	void CreateIoHandler(IOHANDLER_DESC& lpDesc);
 
 	pthread_t                                m_hSendThread;
 	int                                      m_bShutdown;

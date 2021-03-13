@@ -6,7 +6,6 @@ namespace Network
 
 class Session;
 class SessionList;
-class CMessageDecode;
 
 class SessionPool
 {
@@ -15,7 +14,7 @@ public:
 	            uint32_t dwTimeOutTick, uint32_t dwIndexStart, bool bAcceptSocket);
 	~SessionPool();
 
-	Session* Alloc(CMessageDecode* pDecode);
+	Session* Alloc();
 	void Free(Session* pSession);
 	int GetMaxSize();
 

@@ -7,7 +7,6 @@ class Session;
 class IoHandler;
 class SessionPool;
 
-typedef struct tagIOHANDLER_DESC IOHANDLER_DESC, * LPIOHANDLER_DESC;
 class Acceptor {
     friend void* accept_epoll_event_thread(void* param);
     friend void* accept_thread(void* param);

@@ -122,8 +122,7 @@ IoHandler::IoHandler()
 	m_pEvents              = NULL;
 	m_hIoThread            = 0;
 
-	m_pNetworkPool = NULL;
-	m_pMsgDecode   = NULL;
+	m_pNetworkPool         = NULL;
 }
 
 IoHandler::~IoHandler()
@@ -144,13 +143,11 @@ IoHandler::~IoHandler()
 
 }
 
-void IoHandler::Init(IOCPServer* pIOCPServer, LPIOHANDLER_DESC lpDesc)
+void IoHandler::Init(IOCPServer* pIOCPServer, IOHANDLER_DESC& lpDesc)
 {
 	m_pIOCPServer  = pIOCPServer;
-	m_pNetworkPool = lpDesc->pool;
-	m_pMsgDecode   = lpDesc->decode;
-	assert(m_pMsgDecode != NULL);
-	m_dwKey = lpDesc->dwIoHandlerKey;
+	m_pNetworkPool = lpDesc.pool;
+	m_dwKey = lpDesc.dwIoHandlerKey;
 
 	m_pActiveSessionList   = new SessionList;
 	m_pAcceptedSessionList = new SessionList;
@@ -158,24 +155,24 @@ void IoHandler::Init(IOCPServer* pIOCPServer, LPIOHANDLER_DESC lpDesc)
 	m_pConnectFailList     = new SessionList;
 	m_pTempList            = new SessionList;
 
-	m_dwMaxAcceptSession = lpDesc->dwMaxAcceptSession;
-	m_pAcceptSessionPool = new SessionPool(lpDesc->dwMaxAcceptSession + EXTRA_ACCEPTEX_NUM,
-	                                       lpDesc->dwSendBufferSize,
-	                                       lpDesc->dwRecvBufferSize,
-	                                       lpDesc->dwMaxPacketSize,
-	                                       lpDesc->dwTimeOut,
+	m_dwMaxAcceptSession = lpDesc.dwMaxAcceptSession;
+	m_pAcceptSessionPool = new SessionPool(lpDesc.dwMaxAcceptSession + EXTRA_ACCEPTEX_NUM,
+	                                       lpDesc.dwSendBufferSize,
+	                                       lpDesc.dwRecvBufferSize,
+	                                       lpDesc.dwMaxPacketSize,
+	                                       lpDesc.dwTimeOut,
 	                                       1,
 	                                       TRUE);
 
-	m_pConnectSessionPool = new SessionPool(lpDesc->dwMaxConnectSession,
-	                                        lpDesc->dwMaxConnectBuffSize,
-	                                        lpDesc->dwMaxConnectBuffSize,
-	                                        lpDesc->dwMaxPacketSize,
-	                                        lpDesc->dwTimeOut,
+	m_pConnectSessionPool = new SessionPool(lpDesc.dwMaxConnectSession,
+	                                        lpDesc.dwMaxConnectBuffSize,
+	                                        lpDesc.dwMaxConnectBuffSize,
+	                                        lpDesc.dwMaxPacketSize,
+	                                        lpDesc.dwTimeOut,
 	                                        m_pAcceptSessionPool->GetMaxSize() + 1,
 	                                        FALSE);
 
-	m_dwMaxPacketSize = lpDesc->dwMaxPacketSize;
+	m_dwMaxPacketSize = lpDesc.dwMaxPacketSize;
 
 	m_pEvents = new CircuitQueue<struct epoll_event>;
 	m_pEvents->Create(SOCKET_HOLDER_SIZE*2, SOCKET_HOLDER_SIZE);
@@ -259,12 +256,12 @@ bool IoHandler::IsListening()
 
 Session* IoHandler::AllocAcceptSession()
 {
-	return m_pAcceptSessionPool->Alloc(m_pMsgDecode);
+	return m_pAcceptSessionPool->Alloc();
 }
 
 Session* IoHandler::AllocConnectSession()
 {
-	return m_pConnectSessionPool->Alloc(m_pMsgDecode);
+	return m_pConnectSessionPool->Alloc();
 }
 
 void IoHandler::FreeSession(Session* pSession)

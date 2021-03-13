@@ -47,11 +47,11 @@ IOCPServer::~IOCPServer()
 	@retval	int
 */
 //=============================================================================================================================
-bool IOCPServer::Init(LPIOHANDLER_DESC lpDesc, uint32_t dwNumberofIoHandlers)
+bool IOCPServer::Init(std::vector<IOHANDLER_DESC>& lpDesc)
 {
-	for (uint32_t i = 0; i < dwNumberofIoHandlers; ++i)
+	for (uint32_t i = 0; i < lpDesc.size(); ++i)
 	{
-		CreateIoHandler(lpDesc + i);
+		CreateIoHandler(lpDesc[i]);
 	}
 
 	// Send
@@ -60,7 +60,7 @@ bool IOCPServer::Init(LPIOHANDLER_DESC lpDesc, uint32_t dwNumberofIoHandlers)
 	return true;
 }
 
-void IOCPServer::CreateIoHandler(LPIOHANDLER_DESC lpDesc)
+void IOCPServer::CreateIoHandler(IOHANDLER_DESC& lpDesc)
 {
 	IoHandler* pIoHandler = new IoHandler;
 
