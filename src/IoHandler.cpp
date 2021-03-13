@@ -157,16 +157,16 @@ void IoHandler::Init(IOCPServer* pIOCPServer, IOHANDLER_DESC& lpDesc)
 
 	m_dwMaxAcceptSession = lpDesc.dwMaxAcceptSession;
 	m_pAcceptSessionPool = new SessionPool(lpDesc.dwMaxAcceptSession + EXTRA_ACCEPTEX_NUM,
-	                                       lpDesc.dwSendBufferSize,
-	                                       lpDesc.dwRecvBufferSize,
+                                           lpDesc.dwMaxPacketSize*4,
+                                           lpDesc.dwMaxPacketSize*4,
 	                                       lpDesc.dwMaxPacketSize,
 	                                       lpDesc.dwTimeOut,
 	                                       1,
 	                                       TRUE);
 
 	m_pConnectSessionPool = new SessionPool(lpDesc.dwMaxConnectSession,
-	                                        lpDesc.dwMaxConnectBuffSize,
-	                                        lpDesc.dwMaxConnectBuffSize,
+                                            lpDesc.dwMaxPacketSize*4,
+                                            lpDesc.dwMaxPacketSize*4,
 	                                        lpDesc.dwMaxPacketSize,
 	                                        lpDesc.dwTimeOut,
 	                                        m_pAcceptSessionPool->GetMaxSize() + 1,

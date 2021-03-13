@@ -141,6 +141,10 @@ public:
 	}
 
 private:
+    bool AddSendMessage(uint8_t* pMsg, uint16_t wSize);
+	bool SwapSendMessage();
+
+private:
 	void SetIndex(uint32_t index)
 	{
 		m_dwIndex = index;
@@ -167,7 +171,9 @@ private:
 	TLock m_lockRecv;
 	TLock m_lockSend;
 	int   m_bCanSend;
-	LockedQueue<std::shared_ptr<CMessage> > m_QueueMessage;//消息队列
+
+	LockedQueue<std::shared_ptr<CMessage> > m_RecvQueueMessage;//接受消息队列
+    LockedQueue<std::shared_ptr<CMessage> > m_SendQueueMessage;//发送消息队列
 	uint16_t                                m_wMaxPacketSize;
 
 };

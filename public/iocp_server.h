@@ -57,23 +57,17 @@ public:
         dwIoHandlerKey          = key;
         dwMaxAcceptSession      = 10000;                                                // 最大接受连接数
         dwMaxConnectSession     = 100;                                                  // 最大主动连接数
-        dwMaxConnectBuffSize    = 1024*1024;                                            // 主动连接BuffSize
-        dwSendBufferSize        = 1024*1024;                                            // 发送缓存
-        dwRecvBufferSize        = 1024*1024;                                            // 接受缓存
         dwTimeOut               = 40;                                                   // 超时断开(秒)
-        dwMaxPacketSize         = 32*1024;                                              // 最大包长
+        dwMaxPacketSize         = 16*1024;                                              // 最大包长
         pool                    = new CNetworkObjPoolTemplete<TObj>;                    // 对象池
     }
 
-  uint32_t dwIoHandlerKey;
-  uint32_t dwMaxAcceptSession;      // 最大接受连接数
-  uint32_t dwMaxConnectSession;     // 最大主动连接数
-  uint32_t dwMaxConnectBuffSize;    // 主动连接BuffSize
-  uint32_t dwSendBufferSize;        // 发送缓存
-  uint32_t dwRecvBufferSize;        // 接受缓存
-  uint32_t dwTimeOut;               // 超时断开(秒)
-  uint32_t dwMaxPacketSize;         // 最大包长
-  CNetworkObjPool* pool;            // 对象池
+    uint32_t dwIoHandlerKey;
+    uint32_t dwMaxAcceptSession;      // 最大接受连接数
+    uint32_t dwMaxConnectSession;     // 最大主动连接数
+    uint32_t dwTimeOut;               // 超时断开(秒)
+    uint32_t dwMaxPacketSize;         // 最大包长
+    CNetworkObjPool* pool;            // 对象池
 };
 
 class IOCPServer

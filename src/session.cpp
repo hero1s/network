@@ -64,7 +64,8 @@ void Session::Init()
 	m_bDisconnectOrdered = false;
 	m_bCanSend           = TRUE;
 	ResetTimeOut();
-    m_QueueMessage.clear();
+    m_RecvQueueMessage.clear();
+    m_SendQueueMessage.clear();
 }
 //=============================================================================================================================
 /**
@@ -76,20 +77,51 @@ void Session::Init()
 //=============================================================================================================================
 bool Session::Send(uint8_t* pMsg, uint16_t wSize)
 {
-	if (m_pSendBuffer->Write(pMsg, wSize) == FALSE)
+    return AddSendMessage(pMsg,wSize);
+
+/*	if (m_pSendBuffer->Write(pMsg, wSize) == FALSE)
 	{
 		OnLogString("m_pSendBuffer->Write fail. data length = %d, %d,ip:%s", m_pSendBuffer->GetLength(), wSize, GetIP());
 		Remove();
 		return false;
-	}
+	}*/
 	return true;
 }
+
+bool Session::AddSendMessage(uint8_t* pMsg, uint16_t wSize)
+{
+    if(m_SendQueueMessage.size() > 10000)
+    {
+        OnLogString("addSendMessage is more %d, %d,ip:%s", m_SendQueueMessage.size(), GetIP());
+        Remove();
+        return false;
+    }
+    shared_ptr<CMessage> message(new CMessage(pMsg, wSize));
+    m_SendQueueMessage.push(message);
+    return true;
+}
+
+bool Session::SwapSendMessage()
+{
+    while(!m_SendQueueMessage.empty() && m_pSendBuffer->GetLength() > m_wMaxPacketSize)
+    {
+        auto message = m_RecvQueueMessage.pop();
+        if(m_pSendBuffer->Write(message->Data(),message->Length()) == FALSE)
+        {
+            OnLogString("m_pSendBuffer->Write fail. data length = %d, %d,ip:%s", m_pSendBuffer->GetLength(), message->Length(), GetIP());
+            Remove();
+            return false;
+        }
+    }
+    return true;
+}
+
 bool Session::ProcessRecvdPacket()
 {
     uint32_t msgNum = 0;
-    while (!m_QueueMessage.empty() && (msgNum++) < m_pNetworkObject->MaxTickPacket())
+    while (!m_RecvQueueMessage.empty() && (msgNum++) < m_pNetworkObject->MaxTickPacket())
     {
-        auto message = m_QueueMessage.pop();
+        auto message = m_RecvQueueMessage.pop();
         int  iRet    = m_pNetworkObject->OnRecv(message->Data(), message->Length());
         if (iRet < 0)
         {
@@ -107,7 +139,7 @@ bool Session::DecodeMsgToQueue()
     if(m_pNetworkObject == NULL)return true;
 
 	uint8_t* pPacket;
-	while (m_pRecvBuffer->GetRecvDataLen() >= m_pNetworkObject->GetHeadLen() && (m_QueueMessage.size() < m_pNetworkObject->MaxTickPacket()))
+	while (m_pRecvBuffer->GetRecvDataLen() >= m_pNetworkObject->GetHeadLen() && (m_RecvQueueMessage.size() < m_pNetworkObject->MaxTickPacket()))
 	{
 		pPacket = m_pRecvBuffer->GetFirstPacketPtr(m_pNetworkObject->GetHeadLen());
 		uint32_t iPacketLen = m_pNetworkObject->GetPacketLen(pPacket, m_pNetworkObject->GetHeadLen());
@@ -121,7 +153,7 @@ bool Session::DecodeMsgToQueue()
 			return true;
 		//放入消息队列
 		shared_ptr<CMessage> message(new CMessage(pPacket, iPacketLen));
-		m_QueueMessage.push(message);
+        m_RecvQueueMessage.push(message);
 		//移除缓存
 		m_pRecvBuffer->RemoveFirstPacket(iPacketLen);
 
@@ -151,6 +183,7 @@ int Session::OnSend()
 
 int Session::PreSend(IoHandler* pIoHandler)
 {
+    SwapSendMessage();
 	if (!m_bRemove && m_bCanSend && m_pSendBuffer->IsReadyToSend())
 	{
 		// add to io_thread
