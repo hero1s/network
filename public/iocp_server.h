@@ -63,7 +63,6 @@ typedef struct tagIOHANDLER_DESC
   uint32_t dwMaxPacketSize;         // 最大包长
   CNetworkObjPool* pool;            // 对象池
   CMessageDecode * decode;          // 消息解码器
-  bool openMsgQueue;                // 是否开启消息队列(防止服务器突发阻塞爆掉缓存)
 
   tagIOHANDLER_DESC()
   {

@@ -14,7 +14,7 @@ include(config.cmake)
 clear_all_list()
 
 add_include_path(../src)
-
+add_include_path(../public)
 
 add_source_files(../src/*.*)
 build_static_lib(network ../)

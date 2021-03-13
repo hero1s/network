@@ -151,7 +151,6 @@ void IoHandler::Init(IOCPServer* pIOCPServer, LPIOHANDLER_DESC lpDesc)
 	m_pMsgDecode   = lpDesc->decode;
 	assert(m_pMsgDecode != NULL);
 	m_dwKey = lpDesc->dwIoHandlerKey;
-	m_openMsgQueue = lpDesc->openMsgQueue;
 
 	m_pActiveSessionList   = new SessionList;
 	m_pAcceptedSessionList = new SessionList;
@@ -196,8 +195,6 @@ uint32_t IoHandler::Connect(NetworkObject* pNetworkObject, const char* pszIP, ui
 
 	if (pNetworkObject->m_pSession != NULL) return 0;
 
-	SOCKET sock = socket(AF_INET, SOCK_STREAM, 0);
-
 	SOCKADDR_IN addr;
 	memset(&addr, 0, sizeof(addr));
 
@@ -208,7 +205,7 @@ uint32_t IoHandler::Connect(NetworkObject* pNetworkObject, const char* pszIP, ui
 	Session* pSession = AllocConnectSession();
 	assert(pSession != NULL && "Connect dwMaxConnectSession");
 
-	pSession->SetSocket(sock);
+	pSession->CreateSocket();
 	pSession->SetSockAddr(addr);
 
 	assert(pNetworkObject != NULL);
@@ -262,12 +259,12 @@ bool IoHandler::IsListening()
 
 Session* IoHandler::AllocAcceptSession()
 {
-	return m_pAcceptSessionPool->Alloc(m_pMsgDecode,m_openMsgQueue);
+	return m_pAcceptSessionPool->Alloc(m_pMsgDecode);
 }
 
 Session* IoHandler::AllocConnectSession()
 {
-	return m_pConnectSessionPool->Alloc(m_pMsgDecode,m_openMsgQueue);
+	return m_pConnectSessionPool->Alloc(m_pMsgDecode);
 }
 
 void IoHandler::FreeSession(Session* pSession)

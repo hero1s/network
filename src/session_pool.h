@@ -15,7 +15,7 @@ public:
 	            uint32_t dwTimeOutTick, uint32_t dwIndexStart, bool bAcceptSocket);
 	~SessionPool();
 
-	Session* Alloc(CMessageDecode* pDecode,bool openMsgQueue);
+	Session* Alloc(CMessageDecode* pDecode);
 	void Free(Session* pSession);
 	int GetMaxSize();
 

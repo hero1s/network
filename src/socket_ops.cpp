@@ -113,7 +113,7 @@ bool SetNCloseWait(SOCKET fd)
 }
 void InitSocketOpt(SOCKET fd)
 {
-    //SocketOpt::Nonblocking( sock ); toney test
+    SocketOpt::Nonblocking( fd );
     SocketOpt::DisableBuffering(fd);
     SocketOpt::SetNonBlock(fd);
     SocketOpt::SetNCloseWait(fd);

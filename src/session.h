@@ -41,7 +41,6 @@ public:
 	virtual ~Session();
 
 	void SetMsgDecode(CMessageDecode* pDecode);
-	void SetOpenMsgQueue(bool openMsgQueue);
 
 	void Init();
 	bool Send(uint8_t* pMsg, uint16_t wSize);
@@ -53,8 +52,6 @@ public:
 	SOCKET CreateSocket();
 	bool ProcessRecvdPacket();
 
-	//处理消息
-	bool HandleRecvMessage();
 	//解码消息到消息队列
 	bool DecodeMsgToQueue();
 
@@ -175,7 +172,6 @@ private:
 	int   m_bCanSend;
 	CMessageDecode* m_pMsgDecode;
 	LockedQueue<std::shared_ptr<CMessage> > m_QueueMessage;//消息队列
-	bool                                    m_openMsgQueue;//是否开启消息队列模式
 	uint16_t                                m_wMaxPacketSize;
 
 };

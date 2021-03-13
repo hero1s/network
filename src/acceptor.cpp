@@ -24,8 +24,7 @@ void* accept_thread(void* param)
             continue;
         }
 
-        SocketOpt::Nonblocking(sock);
-        SocketOpt::DisableBuffering(sock);
+        SocketOpt::InitSocketOpt(sock);
 
         Session* pSession = pAcceptor->m_pIoHandler->AllocAcceptSession();
         if (pSession==NULL)

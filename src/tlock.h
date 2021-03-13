@@ -29,6 +29,29 @@ protected:
     pthread_mutex_t mutex_;
 };
 
+//自动加锁的类
+class CAutoLock
+{
+public:
+    CAutoLock(TLock* lock)
+    {
+        lock_ = lock;
+        if(NULL != lock_)
+        {
+            lock_->Lock();
+        }
+    };
+    ~CAutoLock()
+    {
+        if(NULL != lock_)
+        {
+            lock_->Unlock();
+        }
+    };
+private:
+    TLock* lock_;
+};
+
 class TCond {
 public:
     inline TCond()

@@ -8,24 +8,22 @@
 #include <mutex>
 #include <queue>
 #include <list>
-#include "memory_pool.h"
+#include "memory_pools.h"
 
 namespace Network
 {
-    MemoryPool* mp = MemoryPool::GetInstance();
-
 class CMessage
 {
 public:
 	CMessage(uint8_t* pMsg, uint16_t wSize)
 	{
-		m_pMsg  = (uint8_t*)mp->Alloc(wSize);
+		m_pMsg  = (uint8_t*)CMemoryPools::Instance().GetBuff(wSize);
 		m_wSize = wSize;
 		memcpy(m_pMsg,pMsg,wSize);
 	}
 	~CMessage()
 	{
-        mp->FreeAlloc(m_pMsg);
+        CMemoryPools::Instance().DelBuff(m_pMsg);
 		m_pMsg  = NULL;
 		m_wSize = 0;
 	}
@@ -81,6 +79,12 @@ public:
 		std::unique_lock<std::mutex> lock(mutex);
 		return queue.size();
 	}
+	void clear()
+    {
+        std::unique_lock<std::mutex> lock(mutex);
+        std::queue<_T> empty;
+        std::swap(empty, queue);
+    }
 };
 
 };

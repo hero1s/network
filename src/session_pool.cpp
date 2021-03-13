@@ -48,7 +48,7 @@ void SessionPool::Create()
         m_pList->push_back(pSession);
     }
 }
-Session* SessionPool::Alloc(CMessageDecode* pDecode,bool openMsgQueue)
+Session* SessionPool::Alloc(CMessageDecode* pDecode)
 {
     m_pList->Lock();
     if (m_pList->empty())
@@ -66,7 +66,6 @@ Session* SessionPool::Alloc(CMessageDecode* pDecode,bool openMsgQueue)
     {
         pSession->Init();
         pSession->SetMsgDecode(pDecode);
-        pSession->SetOpenMsgQueue(openMsgQueue);
     }
     m_pList->pop_front();
 

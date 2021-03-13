@@ -34,7 +34,6 @@ Session::Session(uint32_t dwSendBufferSize, uint32_t dwRecvBufferSize, uint32_t 
 
 	m_pNetworkObject = NULL;
 	m_pMsgDecode     = NULL;
-	m_openMsgQueue   = false;
 	m_wMaxPacketSize = dwMaxPacketSize;
 
 	ResetTimeOut();
@@ -51,10 +50,7 @@ void Session::SetMsgDecode(CMessageDecode* pDecode)
 {
 	m_pMsgDecode = pDecode;
 }
-void Session::SetOpenMsgQueue(bool openMsgQueue)
-{
-	m_openMsgQueue = openMsgQueue;
-}
+
 //=============================================================================================================================
 /**
 	@remarks
@@ -73,6 +69,7 @@ void Session::Init()
 	m_bDisconnectOrdered = false;
 	m_bCanSend           = TRUE;
 	ResetTimeOut();
+    m_QueueMessage.clear();
 }
 //=============================================================================================================================
 /**
@@ -94,56 +91,21 @@ bool Session::Send(uint8_t* pMsg, uint16_t wSize)
 }
 bool Session::ProcessRecvdPacket()
 {
-	if (m_openMsgQueue)
-	{// 开启队列模式
-		return HandleRecvMessage();
-	}
-
-	uint8_t* pPacket;
-	uint32_t msgNum = 0;
-	while (m_pRecvBuffer->GetRecvDataLen() >= m_pMsgDecode->GetHeadLen() && (msgNum++) < m_pMsgDecode->MaxTickPacket())
-	{
-		pPacket             = m_pRecvBuffer->GetFirstPacketPtr(m_pMsgDecode->GetHeadLen());
-		uint32_t iPacketLen = m_pMsgDecode->GetPacketLen(pPacket, m_pMsgDecode->GetHeadLen());
-		if (iPacketLen >= m_wMaxPacketSize)
-		{
-			OnLogString("max packet is big than:%d,ip:%s", iPacketLen, GetIP());
-			return false;
-		}
-		pPacket = m_pRecvBuffer->GetFirstPacketPtr(iPacketLen);
-		if (pPacket == NULL)
-			return true;
-
-		int iRet = m_pNetworkObject->OnRecv(pPacket, iPacketLen);
-		if (iRet < 0)
-		{
-			OnLogString("process msg return < 0,disconnect");
-			return false;
-		}
-
-		m_pRecvBuffer->RemoveFirstPacket(iPacketLen);
-
-		ResetTimeOut();
-	}
-	return true;
+    uint32_t msgNum = 0;
+    while (!m_QueueMessage.empty() && (msgNum++) < m_pMsgDecode->MaxTickPacket())
+    {
+        auto message = m_QueueMessage.pop();
+        int  iRet    = m_pNetworkObject->OnRecv(message->Data(), message->Length());
+        if (iRet < 0)
+        {
+            OnLogString("process msg return < 0,disconnect");
+            return false;
+        }
+        ResetTimeOut();
+    }
+    return true;
 }
-//处理消息
-bool Session::HandleRecvMessage()
-{
-	uint32_t msgNum = 0;
-	while (!m_QueueMessage.empty() && (msgNum++) < m_pMsgDecode->MaxTickPacket())
-	{
-		auto message = m_QueueMessage.pop();
-		int  iRet    = m_pNetworkObject->OnRecv(message->Data(), message->Length());
-		if (iRet < 0)
-		{
-			OnLogString("process msg return < 0,disconnect");
-			return false;
-		}
-		ResetTimeOut();
-	}
-	return true;
-}
+
 //解码消息到消息队列
 bool Session::DecodeMsgToQueue()
 {
@@ -298,14 +260,14 @@ int Session::DoRecv()
 		if (ret < len)
 			break;
 	}
-	if (m_openMsgQueue)
-	{// 开启队列模式
-		if (!DecodeMsgToQueue())
-		{
-			OnLogString("DecodeMsg Error:ip:%s,Remove",GetIP());
-			Remove();
-		}
-	}
+
+	// 开启队列模式
+    if (!DecodeMsgToQueue())
+    {
+        OnLogString("DecodeMsg Error:ip:%s,Remove",GetIP());
+        Remove();
+    }
+
 	return TRUE;
 }
 
@@ -323,7 +285,7 @@ SOCKET Session::CreateSocket()
 
 	SocketOpt::Nonblocking(newSocket);
 	SocketOpt::DisableBuffering(newSocket);
-
+    SetSocket(newSocket);
 	return newSocket;
 }
 
